@@ -21,4 +21,4 @@ place. Safe to re-run.
 
 1. Put its files in a new subdirectory.
 2. Add a `link_one` line in `install.sh`.
-3. List it above. Keep secrets out of git (see `.gitignore`).
+3. List it above. Keep secrets out of git (see `.gitignore`; agents must run `./check-secrets.sh` before committing).
