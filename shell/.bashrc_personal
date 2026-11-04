@@ -1,0 +1,4 @@
+# Personal shell extras, tracked in kris_cfg (shell/.bashrc_personal).
+# Sourced from ~/.bashrc.
+
+alias muse='muse --sandbox-network enabled'

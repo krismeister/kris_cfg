@@ -38,4 +38,20 @@ link_one() {
 MUSE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/muse"
 link_one "$REPO_DIR/muse/settings.json" "$MUSE_CONFIG/settings.json"
 
+# Shell extras: link the file, then ensure ~/.bashrc sources it (idempotent).
+link_one "$REPO_DIR/shell/.bashrc_personal" "$HOME/.bashrc_personal"
+
+BASHRC="$HOME/.bashrc"
+SOURCE_LINE='[ -f "$HOME/.bashrc_personal" ] && source "$HOME/.bashrc_personal"'
+if [ -f "$BASHRC" ] && grep -qF ".bashrc_personal" "$BASHRC"; then
+  echo "SKIP: $BASHRC already sources .bashrc_personal"
+else
+  {
+    echo ""
+    echo "# kris_cfg: personal shell extras"
+    echo "$SOURCE_LINE"
+  } >> "$BASHRC"
+  echo "SOURCED: added .bashrc_personal to $BASHRC"
+fi
+
 echo "Done."

@@ -16,6 +16,7 @@ place. Safe to re-run.
 ## Configs
 
 - `muse/` → `~/.config/muse/settings.json`
+- `shell/` → `~/.bashrc_personal` (plus a source line in `~/.bashrc`)
 
 ## Add a software
 
