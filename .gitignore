@@ -1,0 +1,5 @@
+# Secrets / machine-local state must never be committed.
+muse/auth.json
+muse/trust.json
+# Local backups, if any ever land here.
+*.bak.*
