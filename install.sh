@@ -54,4 +54,20 @@ else
   echo "SOURCED: added .bashrc_personal to $BASHRC"
 fi
 
+# Nvim prefs: link the file into lua/, then ensure init.lua requires it (idempotent).
+link_one "$REPO_DIR/nvim/kris_prefs.lua" "$HOME/.config/nvim/lua/kris_prefs.lua"
+
+NVIM_INIT="$HOME/.config/nvim/init.lua"
+REQUIRE_LINE='require("kris_prefs")'
+if [ -f "$NVIM_INIT" ] && grep -qF "$REQUIRE_LINE" "$NVIM_INIT"; then
+  echo "SKIP: $NVIM_INIT already requires kris_prefs"
+else
+  {
+    echo ""
+    echo "-- kris_cfg: personal nvim prefs"
+    echo "$REQUIRE_LINE"
+  } >> "$NVIM_INIT"
+  echo "REQUIRED: added kris_prefs to $NVIM_INIT"
+fi
+
 echo "Done."

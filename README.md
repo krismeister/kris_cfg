@@ -17,6 +17,7 @@ place. Safe to re-run.
 
 - `muse/` → `~/.config/muse/settings.json`
 - `shell/` → `~/.bashrc_personal` (plus a source line in `~/.bashrc`)
+- `nvim/` → `~/.config/nvim/lua/kris_prefs.lua` (plus a require line in `~/.config/nvim/init.lua`)
 
 ## Add a software
 
