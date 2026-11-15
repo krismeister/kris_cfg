@@ -54,6 +54,9 @@ else
   echo "SOURCED: added .bashrc_personal to $BASHRC"
 fi
 
+# Hyprland input: per-device keyboard options (Omarchy, ~/.config/hypr/).
+link_one "$REPO_DIR/hypr/input.lua" "$HOME/.config/hypr/input.lua"
+
 # Nvim prefs: link the file into lua/, then ensure init.lua requires it (idempotent).
 link_one "$REPO_DIR/nvim/kris_prefs.lua" "$HOME/.config/nvim/lua/kris_prefs.lua"
 
